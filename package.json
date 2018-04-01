@@ -1,0 +1,26 @@
+{
+  "name": "oxygen-roughjs-plugin",
+  "version": "1.0.0",
+  "description": "Rough.js integration plugin for Oxygen Game Engine",
+  "main": "index.js",
+  "author": "Patryk 'PsichiX' Budzynski <psichix@gmail.com> (http://psichix.io)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PsichiX/oxygen-roughjs-plugin.git"
+  },
+  "keywords": [
+    "oxygen"
+  ],
+  "bugs": {
+    "url": "https://github.com/PsichiX/oxygen-roughjs-plugin/issues"
+  },
+  "homepage": "https://github.com/PsichiX/oxygen-roughjs-plugin#readme",
+  "dependencies": {
+    "roughjs": "^2.0.1",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "oxygen-core": "latest"
+  }
+}

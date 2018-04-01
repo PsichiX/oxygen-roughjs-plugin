@@ -1,0 +1,35 @@
+CallsList "callslist"
+  = first:Call rest:(__ Call)* {
+    var result = [ first ];
+    for (const item of rest) {
+      result.push(item[1]);
+    }
+    return result;
+  }
+
+Identifier "identifier"
+  = _ [_a-zA-Z][_a-zA-Z0-9-_]* { return text(); }
+
+Value "value"
+  = _ "-"?[0-9]+("."[0-9]+)? { return parseFloat(text()); }
+
+Call "call"
+  = ident:Identifier _ params:(Params) { return [ident].concat(params); }
+
+Params "params"
+  = _ "(" _ contents:ParamsContents _ ")" { return contents; }
+
+ParamsContents
+  = first:Value rest:(__ Value)* {
+    var result = [ first ];
+    for (const item of rest) {
+      result.push(item[1]);
+    }
+    return result;
+  }
+
+__ "whitespace"
+  = [ \t\n\r]+
+
+_ "whitespace_any"
+  = [ \t\n\r]*
