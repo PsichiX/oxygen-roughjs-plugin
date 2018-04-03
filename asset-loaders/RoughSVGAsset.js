@@ -131,7 +131,7 @@ function render(rc, parent, styles) {
       for (const item of elm) {
         const { $ } = item;
         if (!!$) {
-          const s = styles.get($.class);
+          let s = styles.get($.class);
           if (!s || s.fill !== 'none') {
             ctx.save();
             if (!!$.transform) {
@@ -157,6 +157,111 @@ function render(rc, parent, styles) {
             }
             if (!!$.points) {
               rc.polygon(buildPoints($.points), styles.get($.class));
+            }
+            ctx.restore();
+          }
+        }
+      }
+    } else if (key === 'rect') {
+      const elm = parent[key];
+      for (const item of elm) {
+        const { $ } = item;
+        if (!!$) {
+          const s = styles.get($.class);
+          if (!s || s.fill !== 'none') {
+            ctx.save();
+            if (!!$.transform) {
+              transform(ctx, $.transform);
+            }
+            rc.rectangle(
+              parseFloat($.x || '0'),
+              parseFloat($.y || '0'),
+              parseFloat($.width || '0'),
+              parseFloat($.height || '0'),
+              styles.get($.class)
+            );
+            ctx.restore();
+          }
+        }
+      }
+    } else if (key === 'circle') {
+      const elm = parent[key];
+      for (const item of elm) {
+        const { $ } = item;
+        if (!!$) {
+          const s = styles.get($.class);
+          if (!s || s.fill !== 'none') {
+            ctx.save();
+            if (!!$.transform) {
+              transform(ctx, $.transform);
+            }
+            rc.circle(
+              parseFloat($.cx || '0'),
+              parseFloat($.cy || '0'),
+              parseFloat($.r || '0'),
+              styles.get($.class)
+            );
+            ctx.restore();
+          }
+        }
+      }
+    } else if (key === 'ellipse') {
+      const elm = parent[key];
+      for (const item of elm) {
+        const { $ } = item;
+        if (!!$) {
+          const s = styles.get($.class);
+          if (!s || s.fill !== 'none') {
+            ctx.save();
+            if (!!$.transform) {
+              transform(ctx, $.transform);
+            }
+            rc.ellipse(
+              parseFloat($.cx || '0'),
+              parseFloat($.cy || '0'),
+              parseFloat($.rx || '0') * 2,
+              parseFloat($.ry || '0') * 2,
+              styles.get($.class)
+            );
+            ctx.restore();
+          }
+        }
+      }
+    } else if (key === 'line') {
+      const elm = parent[key];
+      for (const item of elm) {
+        const { $ } = item;
+        if (!!$) {
+          const s = styles.get($.class);
+          if (!s || s.fill !== 'none') {
+            ctx.save();
+            if (!!$.transform) {
+              transform(ctx, $.transform);
+            }
+            rc.line(
+              parseFloat($.x1 || '0'),
+              parseFloat($.y1 || '0'),
+              parseFloat($.x2 || '0'),
+              parseFloat($.y2 || '0'),
+              styles.get($.class)
+            );
+            ctx.restore();
+          }
+        }
+      }
+    } else if (key === 'polyline') {
+      const elm = parent[key];
+      for (const item of elm) {
+        const { $ } = item;
+        if (!!$) {
+          const s = styles.get($.class);
+          if (!s || s.fill !== 'none') {
+            ctx.save();
+            if (!!$.transform) {
+              transform(ctx, $.transform);
+            }
+            if (!!$.points) {
+              rc.linearPath(buildPoints($.points), styles.get($.class));
             }
             ctx.restore();
           }
