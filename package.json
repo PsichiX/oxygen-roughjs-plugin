@@ -1,6 +1,6 @@
 {
   "name": "oxygen-roughjs-plugin",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Rough.js integration plugin for Oxygen Game Engine",
   "main": "index.js",
   "author": "Patryk 'PsichiX' Budzynski <psichix@gmail.com> (http://psichix.io)",
