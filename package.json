@@ -1,6 +1,6 @@
 {
   "name": "oxygen-roughjs-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Rough.js integration plugin for Oxygen Game Engine",
   "main": "index.js",
   "author": "Patryk 'PsichiX' Budzynski <psichix@gmail.com> (http://psichix.io)",
@@ -16,11 +16,38 @@
     "url": "https://github.com/PsichiX/oxygen-roughjs-plugin/issues"
   },
   "homepage": "https://github.com/PsichiX/oxygen-roughjs-plugin#readme",
+  "scripts": {
+    "clean": "rm -rf bin",
+    "build-api-index": "./node_modules/.bin/babel index.js -d bin",
+    "build-api-utils": "./node_modules/.bin/babel utils -d bin/utils",
+    "build-api-components": "./node_modules/.bin/babel components -d bin/components",
+    "build-api-asset-loaders": "./node_modules/.bin/babel asset-loaders -d bin/asset-loaders",
+    "build-api": "npm run build-api-index && npm run build-api-utils && npm run build-api-components && npm run build-api-asset-loaders",
+    "build-browserify": "./node_modules/.bin/browserify bin/index.js -o bin/oxygen-roughjs-plugin.js -s OxygenRoughjsPlugin -x oxygen-core",
+    "build-browserify-uglify": "./node_modules/.bin/browserify bin/index.js -o bin/oxygen-roughjs-plugin.min.js -s OxygenRoughjsPlugin -x oxygen-core -t uglifyify",
+    "build": "npm run clean && npm run build-api && npm run build-browserify && npm run build-browserify-uglify"
+  },
+  "files": [
+    "asset-loaders",
+    "components",
+    "parsers",
+    "utils",
+    ".babelrc",
+    "index.js",
+    "bin/oxygen-roughjs-plugin.js",
+    "bin/oxygen-roughjs-plugin.min.js"
+  ],
   "dependencies": {
     "roughjs": "^2.0.1",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "oxygen-core": "latest"
+    "@babel/cli": "^7.0.0-beta.48",
+    "@babel/core": "^7.0.0-beta.48",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.48",
+    "@babel/preset-env": "^7.0.0-beta.48",
+    "browserify": "^16.2.2",
+    "oxygen-core": "latest",
+    "uglifyify": "^5.0.0"
   }
 }
