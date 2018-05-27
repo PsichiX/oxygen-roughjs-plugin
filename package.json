@@ -27,7 +27,7 @@
     "src",
     ".babelrc",
     ".webpack.config.js",
-    "bin/oxygen-roughjs-plugin.js",
+    "bin/oxygen-roughjs-plugin.js"
   ],
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
