@@ -1,8 +1,8 @@
 {
   "name": "oxygen-roughjs-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Rough.js integration plugin for Oxygen Game Engine",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "Patryk 'PsichiX' Budzynski <psichix@gmail.com> (http://psichix.io)",
   "license": "MIT",
   "repository": {
@@ -20,7 +20,15 @@
     "roughjs": "^2.0.1",
     "xml2js": "^0.4.19"
   },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack -p"
+  },
   "devDependencies": {
-    "oxygen-core": "latest"
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "babel-loader": "^8.0.0-beta.3",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4"
   }
 }
