@@ -2,11 +2,6 @@ import { System } from 'oxygen-core';
 import RoughSVGAsset from './asset-loaders/RoughSVGAsset';
 import DynamicSpriteVariantController from './components/DynamicSpriteVariantController';
 
-export default {
-  RoughSVGAsset,
-  DynamicSpriteVariantController
-};
-
 export {
   RoughSVGAsset,
   DynamicSpriteVariantController
