@@ -18,10 +18,14 @@ var config = {
     path: BUILD_DIR,
     filename: 'oxygen-roughjs-plugin.js',
     library: 'OxygenRoughjsPlugin',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
   },
   externals: {
-    'oxygen-core': 'oxygen-core',
+    'oxygen-core': {
+      commonjs: 'oxygen-core',
+      amd: 'oxygen-core',
+      root: 'OxygenCore',
+    },
   },
 };
 
