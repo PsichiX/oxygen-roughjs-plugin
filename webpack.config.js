@@ -23,6 +23,7 @@ var config = {
   externals: {
     'oxygen-core': {
       commonjs: 'oxygen-core',
+      commonjs2: 'oxygen-core',
       amd: 'oxygen-core',
       root: 'OxygenCore',
     },
